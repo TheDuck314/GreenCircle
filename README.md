@@ -1,7 +1,9 @@
 # Setup
 
 1. `mvn package`
-2. Run a game with `java -jar target/GreenCircle-1.0-SNAPSHOT.jar -p1 '<bot command 1>' -p2 '<bot command 2>' -l gamelog1.json -d 129378`
+2. Run a game with `java -jar -Dleague.level=3 target/GreenCircle-1.0-SNAPSHOT.jar -p1 '<bot command 1>' -p2 '<bot command 2>' -l gamelog1.json -d 129378`
+
+`-Dleague.level=3` is necessary to get bronze+ league rules.
 
 # Green Circle 
 
