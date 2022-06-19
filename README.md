@@ -1,3 +1,8 @@
+# Setup
+
+1. `mvn package`
+2. Run a game with `java -jar target/GreenCircle-1.0-SNAPSHOT.jar -p1 '<bot command 1>' -p2 '<bot command 2>' -l gamelog1.json -d 129378`
+
 # Green Circle 
 
 [Coding Challenge](https://www.codingame.com/contests/green-circle) created by Societe Generale for [CodinGame](https://codingame.com)
