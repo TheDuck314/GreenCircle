@@ -100,8 +100,8 @@ public class Referee extends AbstractReferee {
                 gameSummaryManager.addPlayerDisqualified(player);
             }
 
-            gameManager.addToGameSummary(gameSummaryManager.getSummary());
             setNextPhase(player);
+            gameManager.addToGameSummary(gameSummaryManager.getSummary());
 
             view.refreshCards(game);
             view.refreshApplications(game);
@@ -143,6 +143,8 @@ public class Referee extends AbstractReferee {
         else if (gamePhase == GamePhase.PLAY_CARD) {
             activePlayer.removeOnePlay();
             if (activePlayer.getPlaysLeft() <= 0) {
+                gameSummaryManager.addNoMorePlayingCardAllowed(activePlayer);
+                activePlayer.setPlaysLeft(0);
                 if (game.canReleaseApplication(activePlayer)) {
                     gamePhase = GamePhase.RELEASE;
                 }
@@ -168,7 +170,7 @@ public class Referee extends AbstractReferee {
 
     private void startPlayCardPhase(Player player) {
         gamePhase = GamePhase.PLAY_CARD;
-        player.addMorePlays(1);
+        player.setPlaysLeft(1);
     }
 
     private void switchToNextPlayer(Player player) {
